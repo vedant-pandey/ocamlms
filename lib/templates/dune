@@ -1,0 +1,14 @@
+(library
+ (name templates)
+ (public_name ocamlms.templates)
+ (libraries
+  core
+  dream
+  caqti
+  caqti-driver-postgresql
+  caqti-lwt
+  tyxml
+  lwt.unix
+  ocamlms.utils)
+ (preprocess
+  (pps ppx_rapper)))

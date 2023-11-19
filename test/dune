@@ -1,0 +1,12 @@
+(test
+ (name ocamlms)
+ (libraries
+  core
+  opium
+  caqti
+  caqti-driver-postgresql
+  caqti-lwt
+  tyxml
+  lwt.unix)
+ (preprocess
+  (pps ppx_rapper)))

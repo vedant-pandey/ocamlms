@@ -1,0 +1,6 @@
+(executables
+ (names migrate rollback)
+ (public_names ocamlms.migrate ocamlms.rollback)
+ (libraries ocamlms lwt)
+ (preprocess
+  (pps ppx_rapper)))
