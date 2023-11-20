@@ -27,8 +27,7 @@
   ;; Standard library replacement
   (core (>= v0.12.2))
 
-  ;; Web toolkit
-  (opium (>= 0.17.1))
+  dream
 
   ;; Database interface
   (caqti (>= 1.2.3))
@@ -38,8 +37,7 @@
 
   ;; HTML generation
   (tyxml (>= 4.3.0))
-  tyxml-jsx
-
+  
   ;; Logging
   (logs (>= 0.7.0))
 

@@ -23,3 +23,5 @@ clean:
 	rm -rf assets/js/*.js
 	dune clean
 
+install:
+	opam install . --deps-only --with-test --with-doc

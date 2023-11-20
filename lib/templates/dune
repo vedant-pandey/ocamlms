@@ -3,7 +3,6 @@
  (public_name ocamlms.templates)
  (libraries
   core
-  dream
   caqti
   caqti-driver-postgresql
   caqti-lwt
