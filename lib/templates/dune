@@ -8,6 +8,7 @@
   caqti-driver-postgresql
   caqti-lwt
   tyxml
+  tyxml-jsx
   lwt.unix
   ocamlms.utils)
  (preprocess

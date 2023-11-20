@@ -1,32 +1,38 @@
 open Tyxml.Html
 
-let this_head ?(str = "This is the default title") () = [] |> head @@ title @@ txt str
-let this_body = body [ h1 [ txt "OCaml!" ] ]
-
-let login_page =
-  html
-    (this_head ~str:"Login" ())
-    (body
-       [ h1 [ txt "Login" ]
-       ; form
-           ~a:[ a_action "/login"; a_method `Post ]
-           [ label [ txt "Username: " ]
-           ; input ~a:[ a_input_type `Text; a_name "username" ] ()
-           ; br ()
-           ; label [ txt "Password: " ]
-           ; input ~a:[ a_input_type `Password; a_name "password" ] ()
-           ; br ()
-           ; input ~a:[ a_input_type `Submit; a_value "Login" ] ()
-           ]
-       ])
+let build_head ~title:title_str ~scripts ~styles () =
+  let scripts = scripts |> List.map @@ fun url -> script ~a:[ a_src url ] @@ txt "" in
+  let styles = styles |> List.map @@ fun url -> link ~rel:[ `Stylesheet ] ~href:url () in
+  scripts @ styles |> head @@ title @@ txt title_str
 ;;
 
-let home_page = html (this_head ~str:"Home" ()) this_body
-let register_page = html (this_head ~str:"Register" ()) this_body
-let profile_page = html (this_head ~str:"Profile" ()) this_body
-let course_page = html (this_head ~str:"Course" ()) this_body
+let build_page ?(title = "Hello world") ?(scripts = []) ?(styles = []) content =
+  body content |> html @@ build_head ~scripts ~styles ~title ()
+;;
 
-let render page_type =
+let login_page =
+  build_page
+    ~title:"Login"
+    [ h1 [ txt "Login" ]
+    ; form
+        ~a:[ a_action "/login"; a_method `Post ]
+        [ label [ txt "Username: " ]
+        ; input ~a:[ a_input_type `Text; a_name "username" ] ()
+        ; br ()
+        ; label [ txt "Password: " ]
+        ; input ~a:[ a_input_type `Password; a_name "password" ] ()
+        ; br ()
+        ; input ~a:[ a_input_type `Submit; a_value "Login" ] ()
+        ]
+    ]
+;;
+
+let home_page = build_page ~title:"Home" [ txt "Home" ]
+let register_page = build_page ~title:"Register" [ txt "Register" ]
+let profile_page = build_page ~title:"Profile" [ txt "Profile" ]
+let course_page = build_page ~title:"Course" [ txt "Course" ]
+
+let render page_type _ =
   let render_page =
     match page_type with
     | `Login -> login_page
@@ -37,5 +43,3 @@ let render page_type =
   in
   render_page |> Utils.html_of_elt
 ;;
-
-(* html (this_head ()) this_body |> Utils.html_of_elt *)

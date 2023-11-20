@@ -10,6 +10,7 @@
   caqti-lwt
   tyxml
   lwt.unix
+  lwt
   ocamlms.templates)
  (preprocess
   (pps ppx_rapper)))

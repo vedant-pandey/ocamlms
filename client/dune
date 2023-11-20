@@ -1,7 +1,15 @@
 (executable
  (name client)
+ (modules Client)
  (modes js)
- (libraries
-   js_of_ocaml)
- (preprocess (pps js_of_ocaml-ppx)))
+ (libraries js_of_ocaml)
+ (preprocess
+  (pps js_of_ocaml-ppx)))
 
+(executable
+ (name dashboard)
+ (modules Dashboard)
+ (modes js)
+ (libraries js_of_ocaml)
+ (preprocess
+  (pps js_of_ocaml-ppx)))

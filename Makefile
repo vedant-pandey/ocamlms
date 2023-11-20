@@ -1,18 +1,25 @@
 .PHONY: all build_client copy_static run_server clean
 
-all: build_client copy_static run_server
+all: client dev
 
 build_client:
-	dune build --root . client/client.bc.js
+	dune build --root . client
+
+client: clean build_client copy_static
 
 copy_static:
-	mkdir -p static
-	cp _build/default/client/client.bc.js static/client.js
+	mkdir -p assets/js
+	for file in _build/default/client/*.bc.js; do \
+        cp "$$file" "assets/js/$$(basename "$$file" .bc.js).js"; \
+    done
 
-run_server:
-	dune exec --root . server/server.exe
+dev:
+	docker compose up -d
+	-dune fmt
+	dune exec ocamlms -w
 
 clean:
-	rm -rf static/*.js
+	docker compose down
+	rm -rf assets/js/*.js
 	dune clean
 
