@@ -10,22 +10,18 @@ homepage: "https://github.com/vedant-pandey/ocamlms.git"
 doc: "ocamlms.org/documentation"
 bug-reports: "https://github.com/vedant-pandey/ocamlms.git/issues"
 depends: [
-  "dune" {>= "3.11" & >= "2"}
-  "ocaml" {>= "4.08.0"}
-  "core" {>= "v0.12.2"}
-  "opium" {>= "0.17.1"}
-  "caqti" {>= "1.2.3"}
-  "caqti-lwt" {>= "1.2.0"}
-  "caqti-driver-postgresql" {>= "1.2.4"}
-  "ppx_rapper" {>= "2.0.0"}
+  "dune" {>= "3.11" & >= "3.11.1"}
+  "ocaml" {>= "5.1.0"}
+  "core" {>= "v0.16.0"}
+  "dream"
+  "js_of_ocaml-ppx"
+  "js_of_ocaml"
+  "fmt"
   "tyxml" {>= "4.3.0"}
-  "tyxml-jsx"
-  "logs" {>= "0.7.0"}
   "utop" {dev}
   "merlin" {dev}
   "ocamlformat" {dev}
   "ocp-indent" {dev}
-  "reason"
   "odoc" {with-doc}
 ]
 build: [

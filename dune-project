@@ -21,32 +21,25 @@
  (description "A longer description")
  (depends
    ;; General system dependencies
-  (dune (>= 2))
-  (ocaml (>= 4.08.0))
+  (dune (>= 3.11.1))
+  (ocaml (>= 5.1.0))
 
   ;; Standard library replacement
-  (core (>= v0.12.2))
+  (core (>= v0.16.0))
 
   dream
-
-  ;; Database interface
-  (caqti (>= 1.2.3))
-  (caqti-lwt (>= 1.2.0))
-  (caqti-driver-postgresql (>= 1.2.4))
-  (ppx_rapper (>= 2.0.0))
+  js_of_ocaml-ppx 
+  js_of_ocaml
+  fmt
 
   ;; HTML generation
   (tyxml (>= 4.3.0))
   
-  ;; Logging
-  (logs (>= 0.7.0))
-
   ;; Dev dependencies
   (utop :dev)
   (merlin :dev)
   (ocamlformat :dev)
-  (ocp-indent :dev)
-  reason)
+  (ocp-indent :dev))
  (tags
   (lms "learning management system")))
 

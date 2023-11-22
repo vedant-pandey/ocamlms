@@ -14,12 +14,12 @@ copy_static:
     done
 
 dev:
-	docker compose up -d
+	-docker compose up -d
 	-dune fmt
 	dune exec ocamlms -w
 
 clean:
-	docker compose down
+	-docker compose down
 	rm -rf assets/js/*.js
 	dune clean
 
