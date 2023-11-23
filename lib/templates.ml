@@ -6,10 +6,10 @@ let profile_page = Utils.build_page ~title:"Profile" [ txt "Profile" ]
 let course_page = Utils.build_page ~title:"Course" [ txt "Course" ]
 
 let render req = function
-  | `Login -> Login.page req
-  | `Home -> home_page
-  | `Register -> register_page
-  | `Profile -> profile_page
-  | `Course -> course_page
-  | `NotFound -> course_page
+  | Utils.Login -> Login.page req
+  | Home -> home_page
+  | Register -> register_page
+  | Profile -> profile_page
+  | Course -> course_page
+  | NotFound -> course_page
 ;;

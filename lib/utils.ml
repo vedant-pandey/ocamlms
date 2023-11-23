@@ -1,5 +1,17 @@
 open Tyxml.Html
 
+type pages =
+  | Login
+  | Home
+  | Register
+  | Profile
+  | Course
+  | NotFound
+
+type verb =
+  | Get
+  | Post
+
 let build_head ~title:title_str ~scripts ~styles () =
   let scripts = scripts |> List.map @@ fun url -> script ~a:[ a_src url ] @@ txt "" in
   let styles = styles |> List.map @@ fun url -> link ~rel:[ `Stylesheet ] ~href:url () in

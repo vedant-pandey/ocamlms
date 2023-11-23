@@ -1,2 +1,5 @@
 (library
- (name ocamlms))
+ (name ocamlms)
+ (libraries core tyxml fmt lwt dream)
+ (preprocess
+  (pps lwt_ppx)))

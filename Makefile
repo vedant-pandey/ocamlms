@@ -1,4 +1,4 @@
-.PHONY: all build_client copy_static run_server clean
+.PHONY: all build_client copy_static run_server clean clean_env env dev dev_server install
 
 all: client dev
 
@@ -13,15 +13,19 @@ copy_static:
         cp "$$file" "assets/js/$$(basename "$$file" .bc.js).js"; \
     done
 
-dev:
+env:
 	-docker compose up -d
+
+dev:
 	-dune fmt
 	dune exec ocamlms -w
 
-clean:
-	-docker compose down
+dev_server: env dev
+
+clean: clean_env
 	rm -rf assets/js/*.js
 	dune clean
 
 install:
+	-dune build
 	opam install . --deps-only --with-test --with-doc

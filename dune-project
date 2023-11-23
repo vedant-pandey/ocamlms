@@ -31,6 +31,7 @@
   js_of_ocaml-ppx 
   js_of_ocaml
   fmt
+  lwt_ppx
 
   ;; HTML generation
   (tyxml (>= 4.3.0))

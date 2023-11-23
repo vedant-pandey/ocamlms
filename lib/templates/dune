@@ -1,4 +1,0 @@
-(library
- (name templates)
- (modules templates login)
- (libraries core tyxml lwt.unix ocamlms.utils dream))

@@ -5,3 +5,4 @@ node_modules
 *.esy.lock
 .vscode
 assets
+.DS_Store

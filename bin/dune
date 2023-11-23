@@ -1,4 +1,4 @@
 (executable
  (public_name ocamlms)
  (name main)
- (libraries ocamlms core dream tyxml lwt templates))
+ (libraries ocamlms core dream tyxml lwt))
