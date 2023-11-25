@@ -11,11 +11,5 @@ let () =
     | Some x -> int_of_string x
     | None -> 8080
   in
-  let mapped_routes =
-    Handler.route_list |> List.map @@ fun route_page -> Handler.map_routes route_page
-  in
-  Dream.run ~interface ~port
-  @@ Dream.logger
-  @@ Dream.router
-  @@ ((Dream.get "/assets/**" @@ Dream.static "assets") :: mapped_routes)
+  Dream.run ~interface ~port @@ Dream.logger @@ Dream.router @@ Handler.routes
 ;;

@@ -20,22 +20,23 @@
  (synopsis "A learning management software written in Ocaml")
  (description "A longer description")
  (depends
-   ;; General system dependencies
-  (dune (>= 3.11.1))
-  (ocaml (>= 5.1.0))
-
+  ;; General system dependencies
+  (dune
+   (>= 3.11.1))
+  (ocaml
+   (>= 5.1.0))
   ;; Standard library replacement
-  (core (>= v0.16.0))
-
+  (core
+   (>= v0.16.0))
   dream
-  js_of_ocaml-ppx 
+  js_of_ocaml-ppx
   js_of_ocaml
   fmt
   lwt_ppx
-
+  ppx_yojson_conv
   ;; HTML generation
-  (tyxml (>= 4.3.0))
-  
+  (tyxml
+   (>= 4.3.0))
   ;; Dev dependencies
   (utop :dev)
   (merlin :dev)

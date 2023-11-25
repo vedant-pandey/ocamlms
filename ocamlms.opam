@@ -18,6 +18,7 @@ depends: [
   "js_of_ocaml"
   "fmt"
   "lwt_ppx"
+  "ppx_yojson_conv"
   "tyxml" {>= "4.3.0"}
   "utop" {dev}
   "merlin" {dev}
