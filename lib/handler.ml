@@ -53,8 +53,8 @@ let render req = function
 ;;
 
 let route_of_page = function
-  | Login -> "/login"
   | Home -> "/"
+  | Login -> "/login"
   | Register -> "/register"
   | Profile -> "/profile"
   | Course -> "/course"
@@ -62,12 +62,14 @@ let route_of_page = function
 ;;
 
 let map_routes verb =
+  let handler_of_verb =
+    match verb with
+    | Get page_type -> page_type |> route_of_page |> Dream.get
+    | Post page_type -> page_type |> route_of_page |> Dream.post
+  in
   match verb with
-  | Get page_type ->
-    (page_type |> route_of_page |> Dream.get)
-    @@ fun req -> Dream.html @@ render req page_type
-  | Post page_type ->
-    (page_type |> route_of_page |> Dream.post) @@ fun req -> post_routes req page_type
+  | Get page_type -> handler_of_verb @@ fun req -> Dream.html @@ render req page_type
+  | Post page_type -> handler_of_verb @@ fun req -> post_routes req page_type
 ;;
 
 let routes =
