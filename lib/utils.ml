@@ -27,3 +27,5 @@ let build_page ?(title = "Hello world") ?(scripts = []) ?(styles = []) content =
   |> html @@ build_head ~scripts ~styles ~title ()
   |> Fmt.str "%a" @@ pp_elt ()
 ;;
+
+let build_html page = Fmt.str "%a@." (Tyxml.Html.pp ~indent:true ()) page

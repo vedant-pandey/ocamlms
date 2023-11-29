@@ -2,4 +2,4 @@
  (name ocamlms)
  (libraries core tyxml fmt lwt dream)
  (preprocess
-  (pps lwt_ppx ppx_yojson_conv)))
+  (pps lwt_ppx ppx_yojson_conv tyxml-ppx)))

@@ -37,6 +37,7 @@
   ;; HTML generation
   (tyxml
    (>= 4.3.0))
+  tyxml-ppx
   ;; Dev dependencies
   (utop :dev)
   (merlin :dev)

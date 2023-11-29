@@ -17,7 +17,7 @@ env:
 	-docker compose up -d
 
 dev:
-	-dune fmt
+	# -dune fmt
 	dune exec ocamlms -w
 
 dev_server: env dev
